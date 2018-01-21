@@ -95,7 +95,7 @@ Doc.prototype.get = function (dbName, docId, params) {
   });
 };
 
-Doc.prototype.find = function (dbName, docId, query) {
+Doc.prototype.find = function (dbName, query) {
   return this._slouch._req({
     uri: this._slouch._url + '/' + encodeURIComponent(dbName) + '/_find',
     method: 'POST',
