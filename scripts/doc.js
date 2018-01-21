@@ -95,6 +95,15 @@ Doc.prototype.get = function (dbName, docId, params) {
   });
 };
 
+Doc.prototype.find = function (dbName, docId, query) {
+  return this._slouch._req({
+    uri: this._slouch._url + '/' + encodeURIComponent(dbName) + '/_find',
+    method: 'POST',
+    json: query,
+    parseBody: true
+  });
+};
+
 Doc.prototype.getIgnoreMissing = function (dbName, id) {
   var self = this;
   return self.ignoreMissing(function () {
